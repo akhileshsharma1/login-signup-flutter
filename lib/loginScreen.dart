@@ -14,6 +14,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
 
   bool seePassword = true;
+  String loggedInUser = ''; // Variable to hold the logged-in user's email
+  bool isLoggedIn = false; // Track login state
 
   @override
   Widget build(BuildContext context) {
@@ -62,9 +64,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         TextFormField(
                           controller: _emailController,
-                          decoration: const InputDecoration(
-                            suffixIcon: Icon(Icons.email, color: Colors.grey),
-                            label: Text(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.grey[200],
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(color: Colors.grey),
+                            ),
+                            suffixIcon:
+                                const Icon(Icons.email, color: Colors.grey),
+                            label: const Text(
                               'Gmail',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -88,6 +97,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           controller: _passwordController,
                           obscureText: seePassword,
                           decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.grey[200],
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(color: Colors.grey),
+                            ),
                             suffixIcon: IconButton(
                               icon: Icon(
                                 seePassword
@@ -128,12 +143,25 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 70),
+                        const SizedBox(height: 20),
+                        if (isLoggedIn) // Display the logged-in user
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            child: Text(
+                              "Logged in as ${loggedInUser.split('@').first}",
+                              style: const TextStyle(
+                                  fontSize: 20, color: Colors.red),
+                            ),
+                          ),
                         ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
+                              setState(() {
+                                loggedInUser = _emailController.text;
+                                isLoggedIn = true;
+                              });
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Logging in...')),
+                                SnackBar(content: Text('Logged in')),
                               );
                             }
                           },
@@ -151,7 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 end: Alignment.bottomRight,
                                 colors: [
                                   Color(0xff1ABC9C),
-                                  Color.fromARGB(255, 236, 119, 16)
+                                  Color.fromARGB(255, 236, 119, 16),
                                 ],
                               ),
                             ),
@@ -187,7 +215,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => RegScreen()),
+                                      builder: (context) => RegScreen(),
+                                    ),
                                   );
                                 },
                                 style: ElevatedButton.styleFrom(

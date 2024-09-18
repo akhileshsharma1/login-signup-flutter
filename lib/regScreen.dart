@@ -66,9 +66,15 @@ class _RegScreenState extends State<RegScreen> {
                         const SizedBox(height: 25),
                         TextFormField(
                           controller: _fullNameController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.grey[200],
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: const BorderSide(color: Colors.grey),
+                            ),
                             suffixIcon: Icon(Icons.person, color: Colors.grey),
-                            label: Text(
+                            label: const Text(
                               'Full Name',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -89,9 +95,15 @@ class _RegScreenState extends State<RegScreen> {
                         const SizedBox(height: 15),
                         TextFormField(
                           controller: _emailController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.grey[200],
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: const BorderSide(color: Colors.grey),
+                            ),
                             suffixIcon: Icon(Icons.email, color: Colors.grey),
-                            label: Text(
+                            label: const Text(
                               'Email',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -115,6 +127,12 @@ class _RegScreenState extends State<RegScreen> {
                           controller: _passwordController,
                           obscureText: seePassword,
                           decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.grey[200],
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(color: Colors.grey),
+                            ),
                             suffixIcon: IconButton(
                               icon: Icon(
                                 seePassword
@@ -164,6 +182,12 @@ class _RegScreenState extends State<RegScreen> {
                           controller: _confirmPasswordController,
                           obscureText: seeConfirmPassword,
                           decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.grey[200],
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(color: Colors.grey),
+                            ),
                             suffixIcon: IconButton(
                               icon: Icon(
                                 seeConfirmPassword
@@ -200,13 +224,12 @@ class _RegScreenState extends State<RegScreen> {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Registered User')),
+                                SnackBar(content: Text('User is registered')),
                               );
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors
-                                .transparent, // Use backgroundColor instead of primary
+                            backgroundColor: Colors.transparent,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
@@ -263,8 +286,7 @@ class _RegScreenState extends State<RegScreen> {
                                 },
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor:
-                                      Colors.transparent, // Make it transparent
+                                  backgroundColor: Colors.transparent,
                                 ),
                                 child: const Text(
                                   "Sign in",

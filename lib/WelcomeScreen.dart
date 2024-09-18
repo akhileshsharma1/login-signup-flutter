@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/loginScreen.dart';
 import 'package:login/regScreen.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class WelcomeScreen extends StatelessWidget {
