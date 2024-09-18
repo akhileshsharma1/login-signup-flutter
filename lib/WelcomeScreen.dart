@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login/loginScreen.dart';
 import 'package:login/regScreen.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -13,7 +15,9 @@ class WelcomeScreen extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xff1E3A8A), Color(0xffFF8C00)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xff1ABC9C), Color.fromARGB(255, 236, 119, 16)],
           ),
         ),
         child: Column(
@@ -95,23 +99,23 @@ class WelcomeScreen extends StatelessWidget {
               style: TextStyle(fontSize: 20, color: Colors.white),
             ),
             const SizedBox(height: 20),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  icon:
-                      const Icon(Icons.facebook, color: Colors.white, size: 40),
-                  onPressed: () {},
-                ),
+                    icon: const Icon(Icons.facebook,
+                        color: Colors.white, size: 40),
+                    onPressed: () {}),
                 const SizedBox(width: 20),
                 IconButton(
-                  icon: const Icon(Icons.golf_course,
+                  icon: const FaIcon(FontAwesomeIcons.instagram,
                       color: Colors.white, size: 40),
                   onPressed: () {},
                 ),
                 const SizedBox(width: 20),
                 IconButton(
-                  icon: const Icon(Icons.alternate_email,
+                  icon: const FaIcon(FontAwesomeIcons.twitter,
                       color: Colors.white, size: 40),
                   onPressed: () {},
                 ),

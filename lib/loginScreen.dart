@@ -25,9 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
             width: double.infinity,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Color(0xff1E3A8A), Color(0xffFF8C00)],
+                colors: [Color(0xff1ABC9C), Color.fromARGB(255, 236, 119, 16)],
               ),
             ),
             child: const Padding(
@@ -140,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.transparent, 
+                            backgroundColor: Colors.transparent,
                             elevation: 0,
                           ),
                           child: Container(
@@ -151,7 +149,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               gradient: const LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
-                                colors: [Color(0xff1E3A8A), Color(0xffFF8C00)],
+                                colors: [
+                                  Color(0xff1ABC9C),
+                                  Color.fromARGB(255, 236, 119, 16)
+                                ],
                               ),
                             ),
                             child: const Center(
@@ -181,14 +182,18 @@ class _LoginScreenState extends State<LoginScreen> {
                                   color: Colors.black,
                                 ),
                               ),
-                              GestureDetector(
-                                onTap: () {
+                              ElevatedButton(
+                                onPressed: () {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => RegScreen()),
                                   );
                                 },
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  backgroundColor: Colors.transparent,
+                                ),
                                 child: const Text(
                                   "Sign up",
                                   style: TextStyle(

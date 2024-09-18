@@ -28,9 +28,7 @@ class _RegScreenState extends State<RegScreen> {
             width: double.infinity,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Color(0xff1E3A8A), Color(0xffFF8C00)],
+                colors: [Color(0xff1ABC9C), Color.fromARGB(255, 236, 119, 16)],
               ),
             ),
             child: const Padding(
@@ -222,7 +220,10 @@ class _RegScreenState extends State<RegScreen> {
                               gradient: const LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
-                                colors: [Color(0xff1E3A8A), Color(0xffFF8C00)],
+                                colors: [
+                                  Color(0xff1ABC9C),
+                                  Color.fromARGB(255, 236, 119, 16)
+                                ],
                               ),
                             ),
                             child: const Center(
