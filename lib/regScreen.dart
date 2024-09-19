@@ -17,6 +17,7 @@ class _RegScreenState extends State<RegScreen> {
 
   bool seePassword = true;
   bool seeConfirmPassword = true;
+  String? registeredUser;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,7 @@ class _RegScreenState extends State<RegScreen> {
               width: double.infinity,
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 18.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   child: Form(
                     key: _formKey,
                     child: Column(
@@ -223,8 +224,13 @@ class _RegScreenState extends State<RegScreen> {
                         ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
+                              setState(() {
+                                registeredUser = _fullNameController.text;
+                              });
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('User is registered')),
+                                SnackBar(
+                                    content: Text(
+                                        'User is registered: $registeredUser')),
                               );
                             }
                           },
@@ -261,6 +267,16 @@ class _RegScreenState extends State<RegScreen> {
                             ),
                           ),
                         ),
+                        const SizedBox(height: 20),
+                        if (registeredUser != null)
+                          Text(
+                            'Registered as: $registeredUser',
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         const SizedBox(height: 150),
                         Align(
                           alignment: Alignment.bottomRight,

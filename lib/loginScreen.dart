@@ -144,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        if (isLoggedIn) // Display the logged-in user
+                        if (isLoggedIn) 
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 20),
                             child: Text(
